@@ -11,362 +11,253 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to right, #ffe6e6, #fff5cc);
       overflow-x: hidden;
-      position: relative;
     }
 
     #typingTitle {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      margin-top: 20px;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 20px auto;
       color: #d63384;
       border-right: 3px solid #d63384;
       white-space: nowrap;
       overflow: hidden;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
       animation: blinkCursor 0.75s step-end infinite;
     }
-
-    @keyframes blinkCursor {
-      50% { border-color: transparent; }
-    }
+    @keyframes blinkCursor { 50% { border-color: transparent; } }
 
     .letter {
       background: #fff;
-      padding: 30px;
-      border-radius: 15px;
+      padding: 1.5rem;
+      border-radius: 0.8rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      transition: all 0.3s ease-in-out;
-      cursor: default;
+      margin: 1.5rem auto;
+      max-width: 90%;
+      transition: transform 0.3s;
     }
+    .letter:hover { transform: scale(1.02); }
 
-    .letter:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      background-color: #fff7f7;
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
+    .timeline { max-width: 90%; margin: 1rem auto; position: relative; }
     .timeline::after {
       content: '';
       position: absolute;
-      width: 6px;
-      background-color: #ff9aa2;
+      width: 4px;
+      background: #ff9aa2;
       top: 0;
       bottom: 0;
       left: 50%;
-      margin-left: -3px;
+      transform: translateX(-50%);
     }
-
     .timeline-block {
-      padding: 10px 40px;
+      padding: 0.5rem 1rem;
       position: relative;
-      background-color: inherit;
-      width: 50%;
+      width: 45%;
+      margin-bottom: 1.5rem;
     }
-
-    .timeline-block:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      background-color: #fff7f7;
-      border-radius: 6px;
-    }
-
-    .timeline-block.left {
-      left: 0;
-    }
-
-    .timeline-block.right {
-      left: 50%;
-    }
-
-    .timeline-block::after {
-      content: " ";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      right: -10px;
-      background-color: white;
-      border: 4px solid #ff9aa2;
-      top: 15px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .timeline-block.right::after {
-      left: -10px;
-    }
-
+    .timeline-block.left { left: 0; }
+    .timeline-block.right { left: 55%; }
     .timeline-content {
-      padding: 20px;
-      background-color: #ffe8e8;
-      position: relative;
-      border-radius: 6px;
+      background: #ffe8e8;
+      padding: 1rem;
+      border-radius: 0.5rem;
     }
 
-    .song-embed {
-      margin: 20px 0;
-      border-radius: 12px;
+    @media (max-width: 768px) {
+      .timeline::after { left: 8px; }
+      .timeline-block {
+        width: 100%;
+        left: 0 !important;
+        margin-left: 20px;
+      }
     }
 
-    .surprise {
-      margin-top: 40px;
+    .song-embed iframe {
+      border-radius: 0.75rem;
+      width: 100%;
+      height: 100px;
     }
 
     .surprise-message {
       display: none;
       background: #fff0f5;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 15px;
-      font-size: 1.2rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
       color: #c2185b;
+      font-size: 1rem;
     }
 
-    /* Floating Hearts */
-    .heart {
-      width: 15px;
-      height: 15px;
-      background-color: #ff6b81;
+    .heart, .balloon, .love-bird {
       position: absolute;
-      top: -20px;
-      animation: float 8s linear infinite;
-      opacity: 0.8;
-      border-radius: 50% 50% 0 0;
-      transform: rotate(45deg);
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); }
-      100% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
-    }
-
-    .heart::before, .heart::after {
-      content: '';
-      width: 15px;
-      height: 15px;
-      background-color: #ff6b81;
-      border-radius: 50%;
-      position: absolute;
-    }
-
-    .heart::before {
-      top: -7px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 7px;
-      top: 0;
-    }
-
-    /* Dreamy Section */
-    .dreamy-section {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-      background: #fff0f5;
-      margin: 40px 0;
-    }
-
-    .balloon, .love-bird {
-      position: absolute;
-      bottom: -60px;
       animation: floatUp 6s infinite ease-in;
     }
 
-    .balloon {
-      font-size: 2rem;
-      color: #ff6f91;
+    .heart {
+      width: 12px; height: 12px;
+      background: #ff6b81;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(45deg);
     }
+    .heart::before, .heart::after {
+      content: ''; position: absolute;
+      width: 12px; height: 12px;
+      background: #ff6b81; border-radius: 50%;
+    }
+    .heart::before { top: -6px; left: 0; }
+    .heart::after { left: 6px; top: 0; }
 
-    .love-bird {
-      font-size: 2.2rem;
-      color: #f08080;
+    .balloon, .love-bird {
+      bottom: -40px;
+      font-size: 1.5rem;
     }
+    .love-bird { font-size: 1.8rem; }
 
     @keyframes floatUp {
       0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-300px); opacity: 0; }
+      100% { transform: translateY(-250px); opacity: 0; }
     }
 
-    /* Scratch Card */
     .scratch-card {
-      margin: 40px auto;
-      max-width: 300px;
-      height: 150px;
+      margin: 2rem auto;
+      max-width: 90%;
+      height: 120px;
       background: #c2185b;
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      cursor: pointer;
-      border-radius: 10px;
+      border-radius: 0.8rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      position: relative;
     }
 
     .scratch-overlay {
-      position: absolute;
-      top: 0; left: 0;
+      position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
       background: gray;
+      border-radius: 0.8rem;
       z-index: 2;
-      border-radius: 10px;
     }
 
-    /* Hug Simulator */
     .hug-sim {
-      margin: 40px auto;
-      max-width: 300px;
+      margin: 2rem auto;
+      max-width: 90%;
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.5rem;
       animation: hugBounce 1s infinite alternate;
     }
-
     @keyframes hugBounce {
       from { transform: scale(1); }
-      to { transform: scale(1.05); }
+      to { transform: scale(1.07); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts -->
+  <!-- Floating Emojis -->
   <script>
-    for (let i = 0; i < 20; i++) {
-      let heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-      heart.style.width = heart.style.height = 10 + Math.random() * 10 + "px";
-      document.body.appendChild(heart);
+    for (let i = 0; i < 15; i++) {
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = `${Math.random()*100}vw`;
+      h.style.animationDuration = `${4+Math.random()*4}s`;
+      document.body.appendChild(h);
     }
+    const bu = ["🎈","🎈","🐦‍⬛💞🐦","🎈","🐦‍⬛💞🐦"];
+    bu.forEach((emoji, i) => {
+      const e = document.createElement("div");
+      e.className = emoji.includes("🎈") ? "balloon" : "love-bird";
+      e.textContent = emoji;
+      e.style.left = `${10 + i*20}%`;
+      e.style.animationDuration = `${5+Math.random()*3}s`;
+      document.body.appendChild(e);
+    });
   </script>
 
-  <!-- Typing Title -->
   <h1 id="typingTitle"></h1>
 
-  <!-- Dreamy Section -->
-  <div class="dreamy-section">
-    <div class="balloon" style="left: 10%;">🎈</div>
-    <div class="balloon" style="left: 30%;">🎈</div>
-    <div class="love-bird" style="left: 50%;">🐦‍⬛💞🐦</div>
-    <div class="balloon" style="left: 70%;">🎈</div>
-    <div class="love-bird" style="left: 85%;">🐦‍⬛💞🐦</div>
-  </div>
-
   <div class="container text-center">
-    <!-- Love Letter -->
-    <div class="letter mt-4">
+    <div class="letter">
       <h3>My Dearest Palku,</h3>
-      <p>
-        From the first moment we spoke, my world has been brighter. Our first coffee date may have been small, but the joy it brought was huge.
-        No distance can keep me from loving you. This is just a small creation to remind you how much you mean to me.
-        I can't wait for the day we're together in person again.
-      </p>
+      <p>From the first moment we spoke, my world has been brighter, sweeter, and full of joy. You make life beautiful just by being in it.</p>
       <p>Forever yours,<br>❤️ Vishal</p>
     </div>
 
-    <!-- Timeline -->
-    <h3 class="mt-5">📅 Our Timeline</h3>
+    <h3>📅 Our Timeline</h3>
     <div class="timeline">
       <div class="timeline-block left">
-        <div class="timeline-content">
-          <strong>14th March 2025</strong><br>🗣️ Our First Talk
-        </div>
+        <div class="timeline-content"><strong>14 Mar 2025</strong><br>🗣️ Our First Talk</div>
       </div>
       <div class="timeline-block right">
-        <div class="timeline-content">
-          <strong>15th April 2025</strong><br>☕ Our First Coffee Date
-        </div>
+        <div class="timeline-content"><strong>15 Apr 2025</strong><br>☕ First Coffee Date</div>
       </div>
     </div>
 
-    <!-- Countdown -->
-    <h3 class="mt-5">⏳ Time Until We Meet Again</h3>
-    <div id="countdown" class="p-3 mt-3 bg-light rounded border shadow-sm fs-4 text-danger fw-bold"></div>
+    <h3>⏳ Countdown Until We Meet</h3>
+    <div id="countdown" class="p-3 bg-light rounded shadow-sm fs-5 text-danger fw-bold"></div>
 
-    <!-- Songs -->
-    <h3 class="mt-5">🎵 Songs That Remind Me of You</h3>
-    <div class="song-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4ynrGpHy0cTZPRBJrhIHNP?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <h3>🎵 Song Vibes</h3>
+    <div class="song-embed mb-2">
+      <iframe src="https://open.spotify.com/embed/track/4ynrGpHy0cTZPRBJrhIHNP" allow="autoplay; clipboard-write; encrypted-media" loading="lazy"></iframe>
     </div>
-    <div class="song-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/244IAdDdQjG82Sc8db72vv?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="song-embed mb-4">
+      <iframe src="https://open.spotify.com/embed/track/244IAdDdQjG82Sc8db72vv" allow="autoplay; clipboard-write; encrypted-media" loading="lazy"></iframe>
     </div>
 
-    <!-- Surprise -->
     <div class="surprise">
       <button class="btn btn-lg btn-outline-danger" onclick="showSurprise()">Click for a Surprise 💘</button>
       <div class="surprise-message" id="surpriseMessage">
-        You are my favorite person in the entire universe. No distance can ever reduce how much I love you. ❤️
+        You’re my favourite person in the entire universe ❤️
       </div>
     </div>
 
-    <!-- Scratch Card -->
-    <h3 class="mt-5">🃏 Scratch to Reveal</h3>
-    <div class="scratch-card" onclick="revealScratch()">
-      <div class="scratch-overlay" id="scratch"></div>
-      You are my whole world 💗
+    <div>
+      <h3>🃏 Scratch Card</h3>
+      <div class="scratch-card" onclick="revealScratch()">
+        <div class="scratch-overlay" id="scratch"></div>
+        You are my whole world 💗
+      </div>
     </div>
 
-    
+    <div>
+      <h3>🤗 Hug Simulator</h3>
+      <div class="hug-sim">
+        🤗💖 A Big Warm Hug for You 💖🤗
+      </div>
+    </div>
   </div>
 
-  <!-- JavaScript -->
   <script>
-    const title = "💌 For My Palku 💌";
-    let i = 0;
-    function typeWriter() {
-      if (i < title.length) {
-        document.getElementById("typingTitle").innerHTML += title.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      }
-    }
+    // Typing title
+    const title = "💌 For My Palku 💌"; let idx=0;
+    function typeWriter(){ if(idx<title.length){ document.getElementById("typingTitle").innerHTML += title[idx++]; setTimeout(typeWriter,100); } }
     typeWriter();
 
-    function showSurprise() {
-      document.getElementById('surpriseMessage').style.display = 'block';
+    function showSurprise(){
+      document.getElementById('surpriseMessage').style.display='block';
     }
 
-    function revealScratch() {
-      document.getElementById("scratch").style.display = "none";
+    function revealScratch(){
+      document.getElementById("scratch").style.display="none";
     }
 
     // Countdown
-    const countdownElement = document.getElementById("countdown");
-    const targetDate = new Date("2025-07-26T00:00:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        countdownElement.innerHTML = "🎉 It's time! You're together now!";
-        clearInterval(timerInterval);
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownElement.innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    const cd = document.getElementById("countdown");
+    const target = new Date("2025-07-26T00:00:00").getTime();
+    function update(){
+      const n = Date.now();
+      const d = target - n;
+      if(d <= 0){ cd.innerHTML = "🎉 It's time! We're together!"; return; }
+      const days = Math.floor(d / 86400000);
+      const hours = Math.floor((d % 86400000) / 3600000);
+      const mins = Math.floor((d % 3600000) / 60000);
+      const secs = Math.floor((d % 60000) / 1000);
+      cd.innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
+      setTimeout(update, 1000);
     }
-
-    const timerInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
+    update();
   </script>
 </body>
 </html>
